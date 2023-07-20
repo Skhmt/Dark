@@ -16,5 +16,5 @@ Install Deno with powershell: `irm https://deno.land/install.ps1 | iex`
 
 ## References
 
-- deno docs: https://deno.land/manual@v1.8.3/introduction
+- deno docs: https://deno.land/manual@v1.35.2/introduction
 - deno webview api: https://deno.land/x/webview@0.7.5/mod.ts?s=Webview
