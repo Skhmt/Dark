@@ -17,6 +17,7 @@ Install Deno with powershell: `irm https://deno.land/install.ps1 | iex`
 ## Known issues
 
 - Debug toggle doesn't work in Webview
+- Update to Webview 0.7.6 as soon as it's released
 
 ## References
 
