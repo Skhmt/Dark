@@ -1,5 +1,8 @@
 import {Webview, SizeHint} from 'https://raw.githubusercontent.com/aaronhuggins/webview_deno/0.7.6-preview2/mod.ts'
 
+// using aaronhuggins' 0.7.6 preview because webview 0.7.5 is broken with the latest Deno 1.35.x
+// this is NOT safe but all that can be done for now
+
 const html = `
 <html>
     <body>
