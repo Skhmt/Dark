@@ -14,6 +14,10 @@ Install Deno with powershell: `irm https://deno.land/install.ps1 | iex`
 
 `deno task build`
 
+## Known issues
+
+- Debug toggle doesn't work in Webview
+
 ## References
 
 - deno docs: https://deno.land/manual@v1.35.2/introduction
