@@ -1,0 +1,10 @@
+{
+    "imports": {
+
+    },
+    "tasks": {
+        "dev": "deno run --allow-all --unstable ./src/main.ts",
+        "build": "deno compile --unstable --allow-all --output dark2.exe ./src/main.ts; deno run --allow-all change_exe_subsystem.ts dark2.exe",
+        "debug": ""
+    }
+}
