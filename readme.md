@@ -2,6 +2,8 @@
 
 A proof of concept of an Electron-like Deno app for Windows 11
 
+Creates a ~76mb stand-alone (assuming Windows 11 or something with WebView2 installed) executable, zipped is ~30mb
+
 ## Installing
 
 Install Deno with powershell: `irm https://deno.land/install.ps1 | iex`
