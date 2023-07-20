@@ -22,7 +22,7 @@ const html = `
 </html>
 `
 
-const webview = new Webview(true, // debug mode that allows console
+const webview = new Webview(true, // debug mode that allows console... currently this does nothing and is always true
 {
     width: 620,
     height: 450,
@@ -38,15 +38,17 @@ webview.bind('press', (increment: number) => {
     counter += increment || 1
 
     // automatically update the #output div
+    // this is not the ideal way to do this - the view should be updated in the frontend, not here...
+    // but this is just showing how it COULD be done.
     webview.eval(`
         document.querySelector('#output').innerHTML = ${counter};
     `)
 
-    // async return this value
+    // async return this value to webviewland
     return counter
 })
 
-// lets the HTML log out to deno
+// this lets the webviewland log to denoland
 webview.bind('log', (...args) => console.log(...args))
 
 webview.navigate(`data:text/html,${encodeURIComponent(html)}`)
