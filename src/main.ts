@@ -1,8 +1,28 @@
-import {Webview, SizeHint} from 'https://raw.githubusercontent.com/aaronhuggins/webview_deno/0.7.6-preview2/mod.ts'
 
 // using aaronhuggins' 0.7.6 preview because webview 0.7.5 is broken with the latest Deno 1.35.x
 // this is NOT safe but all that can be done for now
+import {Webview, SizeHint} from 'https://raw.githubusercontent.com/aaronhuggins/webview_deno/0.7.6-preview2/mod.ts'
 
+// outputting log to a file since this is supposed to act like a windows application without a console
+import * as log from 'https://deno.land/std@0.195.0/log/mod.ts'
+await log.setup({
+    handlers: {
+        file: new log.handlers.RotatingFileHandler("DEBUG", {
+            filename: "./log.txt",
+            formatter: "{levelName} {msg}", // {datetime} can be added here, but it's very verbose
+            maxBytes: 1024*1024,
+            maxBackupCount: 10
+        })
+    },
+    loggers: {
+        default: {
+            level: "DEBUG",
+            handlers: ["file"]
+        }
+    }
+})
+
+// creating a webpage in a string - this can be read from a file instead
 const html = `
 <html>
     <body>
@@ -49,7 +69,7 @@ webview.bind('press', (increment: number) => {
 })
 
 // this lets the webviewland log to denoland
-webview.bind('log', (...args) => console.log(...args))
+webview.bind('log', (...args) => log.debug(args[0]))
 
 webview.navigate(`data:text/html,${encodeURIComponent(html)}`)
 webview.run()

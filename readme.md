@@ -16,6 +16,12 @@ Install Deno with powershell: `irm https://deno.land/install.ps1 | iex`
 
 `deno task build`
 
+## Debugging
+
+`deno task debug`
+
+Go to `edge://inspect` in Edge (Chromium) or `chrome://inspect` in Chrome to debug
+
 ## Known issues
 
 - Debug toggle doesn't work in Webview
