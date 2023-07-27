@@ -1,10 +1,33 @@
 {
     "imports": {
-
     },
     "tasks": {
-        "dev": "deno run --allow-all --unstable ./src/main.ts",
-        "build": "deno compile --unstable --allow-all --output dark2.exe ./src/main.ts; deno run --allow-all change_exe_subsystem.ts dark2.exe",
+        "dev": "deno lint; deno fmt; deno run --allow-all --unstable ./src/main.ts",
+        "build": "deno lint; deno fmt; deno compile --unstable --allow-all --output dark2.exe ./src/main.ts; deno run --allow-all change_exe_subsystem.ts dark2.exe",
         "debug": "deno run --inspect-wait --allow-all --unstable ./src/main.ts" /* use edge://inspect or chrome://inspect */
+    },
+    "lint": {
+        "include": ["src/"],
+        "exclude": [],
+        "rules": {
+            "tags": ["recommended"],
+            "include": [
+                "camelcase",
+                "eqeqeq",
+                "explicit-function-return-type",
+                "explicit-module-boundary-types",
+                "guard-for-in"
+            ],
+            "exclude": [
+            ] 
+        }
+    },
+    "fmt": {
+        "include": ["src/"],
+        "exclude": [],
+        "useTabs": true,
+        "lineWidth": 120,
+        "semiColons": false,
+        "singleQuote": true
     }
 }
