@@ -25,7 +25,6 @@ Go to `edge://inspect` in Edge (Chromium) or `chrome://inspect` in Chrome to deb
 ## Known issues
 
 - Debug toggle doesn't work in Webview
-- Update to Webview 0.7.6 as soon as it's released
 
 ## References
 
